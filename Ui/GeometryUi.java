@@ -65,8 +65,12 @@ public class GeometryUi {
         calculateAreaOfSquare.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                float area = geometry.areaOfSquare(Float.parseFloat(enterLengthOfSquare.getText()));
-                JOptionPane.showMessageDialog(null, "Area of square is: " + area);
+                try {
+                    float area = geometry.areaOfSquare(Float.parseFloat(enterLengthOfSquare.getText()));
+                    JOptionPane.showMessageDialog(null, "Area of square is: " + area);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");
+                }
             }
         });
     }
@@ -91,29 +95,34 @@ public class GeometryUi {
         enterBreadthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
 
         JLabel instructionLabel2 = new JLabel("Enter length and breadth of Triangle:");
-            instructionLabel.setHorizontalAlignment(JLabel.CENTER);
+        instructionLabel.setHorizontalAlignment(JLabel.CENTER);
 
-            enterLengthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
-            enterBreadthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+        enterLengthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+        enterBreadthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
 
-            JPanel buttonPanel = new JPanel();
-            buttonPanel.setLayout(new FlowLayout());
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
 
-            buttonPanel.add(calculateAreaOfTriangle);
+        buttonPanel.add(calculateAreaOfTriangle);
 
-            areaOfTriangleFrame.add(instructionLabel);
-            areaOfTriangleFrame.add(enterLengthOfTriangle);
-            areaOfTriangleFrame.add(enterBreadthOfTriangle);
-            areaOfTriangleFrame.add(buttonPanel); // add button panel to frame
+        areaOfTriangleFrame.add(instructionLabel);
+        areaOfTriangleFrame.add(enterLengthOfTriangle);
+        areaOfTriangleFrame.add(enterBreadthOfTriangle);
+        areaOfTriangleFrame.add(buttonPanel); // add button panel to frame
 
-            areaOfTriangleFrame.setVisible(true);
+        areaOfTriangleFrame.setVisible(true);
 
-            calculateAreaOfTriangle.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+        calculateAreaOfTriangle.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
                     float area = geometry.areaOfTriangle(Float.parseFloat(enterLengthOfTriangle.getText()),
                             Float.parseFloat(enterBreadthOfTriangle.getText()));
                     JOptionPane.showMessageDialog(null, "Area of triangle is: " + area);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
                 }
-            });
-        }}
+            }
+        });
+    }
+}
