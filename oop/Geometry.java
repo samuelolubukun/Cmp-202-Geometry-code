@@ -19,7 +19,7 @@ public class Geometry extends Maths {
         return divide(1,2) * multiply(breadth, length);
     }
 
-    float areaOfRectangle(float length, float breadth){
+    public float areaOfRectangle(float length, float breadth){
         return multiply(length, breadth);
     }
 }
