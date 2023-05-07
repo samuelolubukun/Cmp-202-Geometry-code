@@ -6,8 +6,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
 public class GeometryUi {
     JFrame frame = new JFrame("Geometry");
     JButton areaOfSqBtn = new JButton("Area of square:");
@@ -22,6 +20,12 @@ public class GeometryUi {
             }
         });
 
+        areaOfTriangle.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                drawAreaOfTriangleUI();
+            }
+        });
         frame.add(areaOfSqBtn);
         frame.add(areaOfTriangle);
         frame.add(areaOfRectangle);
@@ -32,7 +36,7 @@ public class GeometryUi {
 
 
     JFrame areaOfSquareFrame = new JFrame("Area of square");
-    JTextField enterLengthOfSquare = new JTextField("Enter length");
+    JTextField enterLengthOfSquare = new JTextField();
 
     JButton calculateAreaOfSquare = new JButton("Calculate");
 
@@ -66,4 +70,50 @@ public class GeometryUi {
             }
         });
     }
-}
+
+    JFrame areaOfTriangleFrame = new JFrame("Area of Triangle");
+
+    JTextField enterLengthOfTriangle = new JTextField();
+    JTextField enterBreadthOfTriangle = new JTextField();
+    JButton calculateAreaOfTriangle = new JButton("Calculate");
+
+    public void drawAreaOfTriangleUI() {
+        Geometry geometry = new Geometry();
+        areaOfTriangleFrame.setLayout(new GridLayout(4, 2));
+        areaOfTriangleFrame.setSize(300, 200);
+        areaOfTriangleFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+
+        JLabel instructionLabel = new JLabel("Enter length and breadth of Triangle:");
+        instructionLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        enterLengthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+        enterBreadthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+
+        JLabel instructionLabel2 = new JLabel("Enter length and breadth of Triangle:");
+            instructionLabel.setHorizontalAlignment(JLabel.CENTER);
+
+            enterLengthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+            enterBreadthOfTriangle.setHorizontalAlignment(JTextField.CENTER);
+
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.setLayout(new FlowLayout());
+
+            buttonPanel.add(calculateAreaOfTriangle);
+
+            areaOfTriangleFrame.add(instructionLabel);
+            areaOfTriangleFrame.add(enterLengthOfTriangle);
+            areaOfTriangleFrame.add(enterBreadthOfTriangle);
+            areaOfTriangleFrame.add(buttonPanel); // add button panel to frame
+
+            areaOfTriangleFrame.setVisible(true);
+
+            calculateAreaOfTriangle.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    float area = geometry.areaOfTriangle(Float.parseFloat(enterLengthOfTriangle.getText()),
+                            Float.parseFloat(enterBreadthOfTriangle.getText()));
+                    JOptionPane.showMessageDialog(null, "Area of triangle is: " + area);
+                }
+            });
+        }}

@@ -14,7 +14,7 @@ public class Main {
 
       //      System.out.println(geometry.areaOfTriangle(breadth, length));
        // }catch (InputMismatchException ime){
-            System.out.println("Enter a valid number");
+            //System.out.println("Enter a valid number");
       //  }catch (Exception e){
      //       System.out.println("Something went wrong");
       //  }

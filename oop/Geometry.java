@@ -15,7 +15,7 @@ public class Geometry extends Maths {
         return powTwo(length);
     }
 
-    float areaOfTriangle(float breadth, float length){
+    public float areaOfTriangle(float breadth, float length){
         return divide(1,2) * multiply(breadth, length);
     }
 
