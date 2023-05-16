@@ -18,26 +18,25 @@
             File myFile = new File("test.txt");
             FileWriter fileWriter = null;
             try {
-                fileWriter = new FileWriter(myFile);
+                fileWriter = new FileWriter(myFile, true); // Open the file in append mode
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
 
-            printWriter.print(data);
-            printWriter.println("More Money More Problems");
-            printWriter.println("No Money Still Problems");
-            printWriter.println("Money Problems");
+            printWriter.println(data); // Use println instead of print to write on a new line
             printWriter.close();
             bufferedWriter.close();
             fileWriter.close();
         }
+
         public void writeData(String data){
             try {
                 File myFile = new File("test.txt");
 
-                FileWriter writeToFile = new FileWriter("demo");
+                FileWriter writeToFile = new FileWriter(myFile);
+
 
                 writeToFile.write(data);
                 writeToFile.append("More text");
