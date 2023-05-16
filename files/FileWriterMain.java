@@ -31,7 +31,7 @@
             fileWriter.close();
         }
 
-        public void writeData(String data){
+        public static void writeData(String data){
             try {
                 File myFile = new File("test.txt");
 

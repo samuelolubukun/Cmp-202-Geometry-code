@@ -1,3 +1,1 @@
-Area of Square: --Area= 16.0
-Area of Triangle: --Area= 10.0
-Area of Rectangle: --Area= 20.0
+Area Of Rectangle with length: 4and breadth:5 is 20.0More text

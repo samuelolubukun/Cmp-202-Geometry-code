@@ -77,14 +77,8 @@ public class GeometryUi {
                 try {
                     float area = geometry.areaOfSquare(Float.parseFloat(enterLengthOfSquare.getText()));
                     JOptionPane.showMessageDialog(null, "Area of square is: " + area);
-                    FileWriterMain fileWriterMain = new FileWriterMain();
-                    String transactionData = "Area of Square: " + "--Area= " + area;
-                    fileWriterMain = new FileWriterMain();
-                    try {
-                        fileWriterMain.appendData(transactionData);
-                    } catch (IOException exc) {
-                        throw new RuntimeException(exc);
-                    }
+                    FileWriterMain.writeData("Area Of Square with length: "
+                            +enterLengthOfSquare.getText()+" is "+ area);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");
                 }
@@ -133,14 +127,8 @@ public class GeometryUi {
                     float area = geometry.areaOfTriangle(Float.parseFloat(enterLengthOfTriangle.getText()),
                             Float.parseFloat(enterBreadthOfTriangle.getText()));
                     JOptionPane.showMessageDialog(null, "Area of triangle is: " + area);
-                    FileWriterMain fileWriterMain = new FileWriterMain();
-                    String transactionData = "Area of Triangle: " + "--Area= " + area;
-                    fileWriterMain = new FileWriterMain();
-                    try {
-                        fileWriterMain.appendData(transactionData);
-                    } catch (IOException exc) {
-                        throw new RuntimeException(exc);
-                    }
+                    FileWriterMain.writeData("Area Of Triangle with length: "
+                            +enterLengthOfTriangle.getText()+"and breadth:"+enterBreadthOfTriangle.getText()+" is "+ area);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
                 }
@@ -164,7 +152,7 @@ public class GeometryUi {
             enterLengthOfRectangle.setHorizontalAlignment(JTextField.CENTER);
             enterBreadthOfRectangle.setHorizontalAlignment(JTextField.CENTER);
 
-            JLabel instructionLabel3 = new JLabel("Enter length and breadth of Triangle:");
+            JLabel instructionLabel3 = new JLabel("Enter length and breadth of Rectangle:");
             instructionLabel3.setHorizontalAlignment(JLabel.CENTER);
 
             enterLengthOfRectangle.setHorizontalAlignment(JTextField.CENTER);
@@ -189,14 +177,8 @@ public class GeometryUi {
                         float area = geometry.areaOfRectangle(Float.parseFloat(enterLengthOfRectangle.getText()),
                                 Float.parseFloat(enterBreadthOfRectangle.getText()));
                         JOptionPane.showMessageDialog(null, "Area of Rectangle is: " + area);
-                        FileWriterMain fileWriterMain = new FileWriterMain();
-                        String transactionData = "Area of Rectangle: " + "--Area= " + area;
-                        fileWriterMain = new FileWriterMain();
-                        try {
-                            fileWriterMain.appendData(transactionData);
-                        } catch (IOException exc) {
-                            throw new RuntimeException(exc);
-                        }
+                        FileWriterMain.writeData("Area Of Rectangle with length: "
+                                +enterLengthOfRectangle.getText()+"and breadth:"+enterBreadthOfRectangle.getText()+" is "+ area);
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
                     }
