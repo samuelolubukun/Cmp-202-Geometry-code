@@ -77,10 +77,12 @@ public class GeometryUi {
                 try {
                     float area = geometry.areaOfSquare(Float.parseFloat(enterLengthOfSquare.getText()));
                     JOptionPane.showMessageDialog(null, "Area of square is: " + area);
-                    FileWriterMain.writeData("Area Of Square with length: "
+                    FileWriterMain.appendData("Area Of Square with length: "
                             +enterLengthOfSquare.getText()+" is "+ area);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter a valid number.");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -127,10 +129,12 @@ public class GeometryUi {
                     float area = geometry.areaOfTriangle(Float.parseFloat(enterLengthOfTriangle.getText()),
                             Float.parseFloat(enterBreadthOfTriangle.getText()));
                     JOptionPane.showMessageDialog(null, "Area of triangle is: " + area);
-                    FileWriterMain.writeData("Area Of Triangle with length: "
+                    FileWriterMain.appendData("Area Of Triangle with length: "
                             +enterLengthOfTriangle.getText()+"and breadth:"+enterBreadthOfTriangle.getText()+" is "+ area);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -177,9 +181,9 @@ public class GeometryUi {
                         float area = geometry.areaOfRectangle(Float.parseFloat(enterLengthOfRectangle.getText()),
                                 Float.parseFloat(enterBreadthOfRectangle.getText()));
                         JOptionPane.showMessageDialog(null, "Area of Rectangle is: " + area);
-                        FileWriterMain.writeData("Area Of Rectangle with length: "
-                                +enterLengthOfRectangle.getText()+"and breadth:"+enterBreadthOfRectangle.getText()+" is "+ area);
-                    } catch (NumberFormatException ex) {
+                            FileWriterMain.appendData("Area Of Rectangle with length: "
+                                    +enterLengthOfRectangle.getText()+"and breadth:"+enterBreadthOfRectangle.getText()+" is "+ area);
+                    } catch (NumberFormatException | IOException ex) {
                         JOptionPane.showMessageDialog(null, "Invalid input. Please enter valid numbers.");
                     }
                 }

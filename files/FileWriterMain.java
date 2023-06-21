@@ -14,7 +14,7 @@
             fileWriterMain1.appendData("");
         }
 
-        public void appendData(String data) throws IOException {
+        public static void appendData(String data) throws IOException {
             File myFile = new File("test.txt");
             FileWriter fileWriter = null;
             try {
